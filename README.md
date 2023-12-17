@@ -31,7 +31,9 @@ mv PeoplesFriends controlwork/
 
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
 из этого репозитория.
+
 `v`
+
 PS. тут скорее всего имеется в виду дополнительны репозиторий для линукса, из которого будет установлен mysql
 https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-ubuntu-20-04
 
@@ -59,27 +61,31 @@ rm mysql-apt-config*
 ```
 
 5. Выложить историю команд в терминале ubuntu
+
 `v`
+
 вывести историю команд в убунту можно с помощью команды `history`
 история же *нужных* команд уже была отображена в прошлых заданиях
 
-6. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
+7. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
 животные и вьючные животные, в составы которых в случае домашних
 животных войдут классы: собаки, кошки, хомяки, а в класс вьючные животные
 войдут: Лошади, верблюды и ослы).
 ![test](images/321.png)
 
-7. В подключенном MySQL репозитории создать базу данных “Друзья
+8. В подключенном MySQL репозитории создать базу данных “Друзья
 человека”
+
 `v`
+
 пкм по пустому месту в навигаторе и выбираем `Create Schema...`
-![[Pasted image 20231215205409.png]]
+![test](images/Pasted%20image%2020231215205409.png)
 
 enter name of scheme and click apply
-![[Pasted image 20231215205747.png]]
+![test](images/Pasted%20image%2020231215205747.png)
 
 вылезет окошко в котором мы снова должны нажать apply
-![[Pasted image 20231215205905.png]]
+![test](images/Pasted%20image%2020231215205905.png)
 
 или можно просто ввести команду в свободный sql файл и запустить его
 ```mysql
@@ -120,7 +126,7 @@ SELECT Species.id ,Species.speciesType, AbstractAnimal.animalType AS animalType_
 FROM Species
 JOIN AbstractAnimal ON Species.animalType_id = AbstractAnimal.id;
 ```
-![[Pasted image 20231216140749.png]]
+![test](images/Pasted%20image%2020231216140749.png)
 
 9. Заполнить низкоуровневые таблицы именами(животных), командами
 которые они выполняют и датами рождения
@@ -149,7 +155,7 @@ SELECT * FROM Animals a
 JOIN Species s ON a.type_id = s.id
 JOIN AbstractAnimal aa ON s.animalType_id = aa.id;
 ```
-![[Pasted image 20231216154352.png]]
+![test](images/Pasted%20image%2020231216154352.png)
 
 добавим таблицу комманд в которой укажем имя команды и id конкретного животного который умеет её исполнять
 ```mysql
@@ -178,7 +184,7 @@ JOIN AbstractAnimal aa ON s.animalType_id = aa.id
 JOIN Commands c ON c.animal_id = a.id
 GROUP BY a.id;
 ```
-![[Pasted image 20231216174409.png]]
+![test](images/Pasted%20image%2020231216174409.png)
 
 10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
 питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
@@ -188,7 +194,7 @@ DELETE FROM Commands
 	WHERE animal_id = (SELECT id FROM Animals WHERE type_id = 5);
 DELETE FROM animals WHERE type_id = 5;
 ```
-![[Pasted image 20231216211414.png]]
+![test](images/Pasted%20image%2020231216211414.png)
 
 ```mysql
 # creating new species horse_donkey to replace all horses and donkeys to that
@@ -204,7 +210,7 @@ JOIN AbstractAnimal aa ON s.animalType_id = aa.id
 JOIN Commands c ON c.animal_id = a.id
 GROUP BY a.id;
 ```
-![[Pasted image 20231216225318.png]]
+![test](images/Pasted%20image%2020231216225318.png)
 
 
 11. Создать новую таблицу “молодые животные” в которую попадут все
@@ -225,7 +231,7 @@ WHERE TIMESTAMPDIFF(YEAR, a.birthday, CURDATE()) BETWEEN 1 and 2;
 
 SELECT * FROM youngAnimals;
 ```
-![[Pasted image 20231217011237.png]]
+![test](images/Pasted%20image%2020231217011237.png)
 
 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
 прошлую принадлежность к старым таблицам.
@@ -244,5 +250,5 @@ GROUP BY a.id;
 
 SELECT * FROM combinedTable;
 ```
-![[Pasted image 20231217020728.png]]
+![test](images/Pasted%20image%2020231217020728.png)
 
