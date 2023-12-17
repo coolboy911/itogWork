@@ -30,7 +30,7 @@ public class AnimalManager {
     public void saveAnimals() throws IOException {
 
         FileWriter writer = new FileWriter(
-                "E:\\Обучение\\GB\\19. Итоговая контрольная работа по блоку специализация\\Урок 2\\3. Java\\Animals.txt",
+                "C:\\Users\\user\\Desktop\\Animals.txt",
                 false);
 
         for (Animal animal : register) {
